@@ -36,25 +36,28 @@ public class Main {
 
         if (!Instant.EPOCH.plusSeconds(2).toString().equals(result)) {
             System.out.println("Reproduced...");
-            while (true) {
-                // Wait for debugger to connect.
-                LockSupport.parkNanos(100);
+            cache.cleanUp();
+            result = await(cache, Instant.EPOCH.plusSeconds(2).toString());
+            if (!Instant.EPOCH.plusSeconds(2).toString().equals(result)) {
+                System.out.println("Clean up did not work...");
+                while (true) {
+                    // Wait for debugger to connect.
+                    LockSupport.parkNanos(100);
+                }
             }
         }
     }
 
     private static String await(LoadingCache<String, String> cache, String expected) {
-        long elapsed = 0;
-        long step = 10;
-        while (!expected.equals(cache.get("")) && elapsed < SECONDS.toNanos(1)) {
+        long start = Clock.systemUTC().millis();
+        while (!expected.equals(cache.get("")) && Clock.systemUTC().millis() - start < 500) {
             /*
              * Cache is updated through async operations, the exact timing of which varies.
              * For this reason we retry if necessary.
              */
-            LockSupport.parkNanos(step);
-            elapsed += step;
+            LockSupport.parkNanos(10);
         }
-        System.out.printf("Waited for %sns%n", elapsed);
+        System.out.printf("Waited for %sms\n", Clock.systemUTC().millis() - start);
         return cache.get("");
     }
 
