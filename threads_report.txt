@@ -1,0 +1,56 @@
+"main@1" prio=5 tid=0x1 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+	  at java.lang.invoke.VarHandle.checkExactAccessMode(VarHandle.java:2045)
+	  at java.lang.invoke.VarHandleGuards.guard_L_L(VarHandleGuards.java:37)
+	  at com.github.benmanes.caffeine.cache.PS.getValue(Unknown Source:-1)
+	  at com.github.benmanes.caffeine.cache.BoundedLocalCache.computeIfAbsent(BoundedLocalCache.java:2417)
+	  at com.github.benmanes.caffeine.cache.LocalAsyncCache.get(LocalAsyncCache.java:90)
+	  at com.github.benmanes.caffeine.cache.LocalAsyncCache.get(LocalAsyncCache.java:81)
+	  at com.github.benmanes.caffeine.cache.LocalAsyncLoadingCache.get(LocalAsyncLoadingCache.java:133)
+	  at com.github.benmanes.caffeine.cache.LocalAsyncLoadingCache$LoadingCacheView.get(LocalAsyncLoadingCache.java:176)
+	  at Main.await(Main.java:49)
+	  at Main.main(Main.java:34)
+
+"Common-Cleaner@1199" daemon prio=8 tid=0x17 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at java.lang.Object.wait(Object.java:-1)
+	  at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+	  at jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:140)
+	  at java.lang.Thread.run(Thread.java:833)
+	  at jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:162)
+
+"ForkJoinPool.commonPool-worker-1@1200" daemon prio=5 tid=0x19 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at jdk.internal.misc.Unsafe.park(Unsafe.java:-1)
+	  at java.util.concurrent.locks.LockSupport.parkUntil(LockSupport.java:410)
+	  at java.util.concurrent.ForkJoinPool.awaitWork(ForkJoinPool.java:1726)
+	  at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1623)
+	  at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+
+"ForkJoinPool.commonPool-worker-2@1201" daemon prio=5 tid=0x1a nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at jdk.internal.misc.Unsafe.park(Unsafe.java:-1)
+	  at java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
+	  at java.util.concurrent.ForkJoinPool.awaitWork(ForkJoinPool.java:1724)
+	  at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1623)
+	  at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+
+"Reference Handler@1195" daemon prio=10 tid=0x2 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+	  at java.lang.ref.Reference.waitForReferencePendingList(Reference.java:-1)
+	  at java.lang.ref.Reference.processPendingReferences(Reference.java:253)
+	  at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:215)
+
+"Finalizer@1196" daemon prio=8 tid=0x3 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at java.lang.Object.wait(Object.java:-1)
+	  at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+	  at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:176)
+	  at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:172)
+
+"Signal Dispatcher@1197" daemon prio=9 tid=0x4 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+
+"Notification Thread@1198" daemon prio=9 tid=0x16 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+
